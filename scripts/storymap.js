@@ -90,7 +90,7 @@ $(window).on('load', function() {
   }
 
   function initMap(options, chapters) {
-    createDocumentSettings(options);
+    //createDocumentSettings(options);
 
     var chapterContainerMargin = 70;
 
