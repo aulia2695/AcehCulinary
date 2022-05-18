@@ -500,7 +500,7 @@
 		},
 		CartoDB: {
 			url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/{variant}/{z}/{x}/{y}.png',
-      url2: 'http://{s}.basemaps.cartocdn.com/{variant}/{z}/{x}/{y}.png',
+      			url2: 'http://{s}.basemaps.cartocdn.com/{variant}/{z}/{x}/{y}.png',
 			options: {
 				attribution: '{attribution.OpenStreetMap} &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 				subdomains: 'abcd',
