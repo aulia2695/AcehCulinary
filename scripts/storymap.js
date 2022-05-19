@@ -115,15 +115,7 @@ $(window).on('load', function() {
       L.control.zoom({
         position: getSetting('_zoomControls')
       }).addTo(map);
-    }
-    
-    // Add search button
-    if (getSetting('_searchButton') !== 'off') {
-      L.control.search({
-        position: getSetting('_searchButton')
-      }).addTo(map);
-    }
-    
+    }    
 
     var markers = [];
 
