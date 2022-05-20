@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="css/loader.css">
   
   <!-- Load Search Button -->
+   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  
   
 </head>
 
@@ -66,9 +68,8 @@
       tap: false
     });
  
+    L.Control.geocoder().addTo(map);
   </script>
-
-L.Control.geocoder().addTo(map);
 
   <script type="text/javascript" src="google-doc-url.js"></script>
   <script type="text/javascript" src="markers/leaflet.extra-markers.min.js"></script>
