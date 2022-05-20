@@ -15,7 +15,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 	
-<!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
+<!-- Make sure you put this AFTER leaflet.js, when using with leaflet GeoSearch -->
 <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
 
   <!-- Load Leaflet basemap providers -->
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="css/style-desktop.css">
   <link rel="stylesheet" href="css/loader.css">
   
-  <!-- Load Leaflet Geo-->
+  <!-- Load Leaflet GeoSearch-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/>
   
 </head>
@@ -69,6 +69,11 @@
       tap: false
     });
     
+// when the docs use an import:
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+const provider = new OpenStreetMapProvider();
+// you want to get it of the window global
+const provider = new GeoSearch.OpenStreetMapProvider();
   </script>
 
   <script type="text/javascript" src="google-doc-url.js"></script>
