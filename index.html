@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="css/loader.css">
 	
   <!-- Load Search Box -->
-  <script src="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  
 </head>
 
 <body>
@@ -64,6 +66,10 @@
       zoomControl: false,
       tap: false
     });
+    
+    L.Control.geocoder({
+	    position: 'topright'
+    }).addTo(map);
     
   </script>
 
