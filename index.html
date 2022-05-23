@@ -37,7 +37,7 @@
   
   <!-- Load Search Box -->
   <link rel="stylesheet" href="../src/leaflet-search.css" />
-  <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+
 </head>
 
 <body>
@@ -83,7 +83,7 @@
 
 	  map.addControl( controlSearch );
 
-	////////////populate map with markers from sample data
+	//populate map with markers from sample data
 	  for(i in data) {
 		  var title = data[i].title,	//value searched
 			  loc = data[i].loc,		//position found
@@ -100,6 +100,7 @@
   <script type="text/javascript" src="scripts/constants.js"></script>
   <script type="text/javascript" src="scripts/jquery.csv.js"></script>
   <script type="text/javascript" src="scripts/storymap.js"></script>
+	<script type="text/javascript"src="src/leaflet-search.js"></script>
 
 </body>
 </html>
