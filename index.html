@@ -69,7 +69,9 @@
     
     L.Control.geocoder({
 	    position: 'topright'
-    }).addTo(map).bindPopup("You clicked at " +../csv/Chapter.csv).openPopup();;
+    }).addTo(map)
+
+	  markers.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	  
 
     
