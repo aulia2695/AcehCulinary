@@ -75,6 +75,25 @@
       tap: false
     });
     
+    // Create function popup marker
+    let point = {};
+
+    map.on('click', function(e) {
+        let latitude  = e.latlng.lat.toString().substring(0,15);
+        let longitude = e.latlng.lng.toString().substring(0,15);
+      
+        let popup = L.popup()
+            .setLatLng([latitude,longitude])
+            .setContent("Kordinat : " + latitude +" - "+  longitude )
+            .openOn(map);
+
+        if (point != undefined) {
+            map.removeLayer(point);
+        };
+        point = L.marker([latitude,longitude]).addTo(map);  
+    });
+    
+    // Create Search Bar
     const search = new GeoSearch.GeoSearchControl({
       provider: cari,
       style: 'bar',
