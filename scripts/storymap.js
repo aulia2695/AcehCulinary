@@ -432,6 +432,9 @@ $(window).on('load', function() {
       }
     }
     map.fitBounds(bounds);
+    
+    var pop = markers.bindPopup('yayaya).openPopup();
+                                pop.addTo(map)
 
     $('#map, #narration, #title').css('visibility', 'visible');
     $('div.loader').css('visibility', 'hidden');
