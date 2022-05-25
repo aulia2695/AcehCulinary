@@ -77,6 +77,21 @@
   
     const mark = L.marker([3.4826740043150974, 97.81326321292669]).addTo(map);
     
+    var markActiveColor = function(k) {
+      /* Removes marker-active class from all markers */
+      for (var i = 0; i < markers.length; i++) {
+        if (markers[i] && markers[i]._icon) {
+          markers[i]._icon.className = markers[i]._icon.className.replace(' marker-active', '');
+
+          if (i == k) {
+            /* Adds marker-active class, which is orange, to marker k */
+            markers[k]._icon.className += ' marker-active';
+          }
+        }
+      }
+    }
+    
+    
     // Create Search Bar
     const search = new GeoSearch.GeoSearchControl({
       provider: cari,
