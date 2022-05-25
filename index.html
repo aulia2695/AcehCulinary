@@ -78,7 +78,7 @@
     // Create function popup marker
     let point = {};
 
-    map.on('move', function(e) {
+    map.on('click', function(e) {
         let latitude  = e.latlng.lat.toString().substring(0,15);
         let longitude = e.latlng.lng.toString().substring(0,15);
       
