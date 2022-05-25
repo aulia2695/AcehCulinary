@@ -76,7 +76,8 @@
     });
   
     const mark = L.marker([3.4826740043150974, 97.81326321292669]).addTo(map);
-    
+    var markers = [];
+
     var markActiveColor = function(k) {
       /* Removes marker-active class from all markers */
       for (var i = 0; i < markers.length; i++) {
