@@ -78,13 +78,13 @@
     // Create function popup marker
     let point = {};
 
-    map.on('click', function(e) {
+    map.on('hover', function(e) {
         let latitude  = e.latlng.lat.toString().substring(0,15);
         let longitude = e.latlng.lng.toString().substring(0,15);
       
         let popup = L.popup()
             .setLatLng([latitude,longitude])
-            .setContent("Kordinat : " + latitude +" - "+  longitude )
+            .setContent("Koordinat : " + latitude +" - "+  longitude )
             .openOn(map);
 
         if (point != undefined) {
