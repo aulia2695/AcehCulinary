@@ -15,8 +15,12 @@ body {
 }
 
 #legenda {
-  height:650vh;
-  widht: 30vw;
+  height:650px;
+  widht: 250px;
+  margin: auto;
+  margin-top: 10px;
+  position: bottom;
+  
 }
 
 #narration {
