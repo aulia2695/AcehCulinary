@@ -14,15 +14,6 @@ body {
   left: 0;
 }
 
-#legenda {
-  height:650px;
-  widht: 250px;
-  margin: auto;
-  margin-top: 10px;
-  position: bottom;
-  
-}
-
 #narration {
   position: absolute;
   top: 203px;
