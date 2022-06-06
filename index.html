@@ -40,18 +40,28 @@
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
   <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
   
-  <style> 
-  #example2 {
-    box-sizing: border-box;
-    width: 300px;
-    height: 100px;
-    padding: 30px;  
-    border: 10px solid blue;
-    position: absolute;
-    top: 160px;
-    left: 160px;
-  }
-  </style>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
   
 </head>
 
@@ -70,7 +80,12 @@
 
   <div class="loader">Loading...</div>
   <div id="map">
-       <div id="example2">Here, the full width is 300px, no matter what!</div>
+      <div class="gallery">
+        <a target="_blank" href="img_5terre.jpg">
+          <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
   </div>
   
   <script type="text/javascript">
