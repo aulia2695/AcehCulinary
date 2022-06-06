@@ -39,14 +39,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
   <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
-  
-  <style>
-    .bottomright {
-      position: absolute;
-      bottom: 8px;
-      right: 16px;
-    }
-  <style>
      
 </head>
 
@@ -64,16 +56,11 @@
   </div>
 
   <div class="loader">Loading...</div>
-  <div id="map">
-      <div class="bottomright">
-        <img src="media/legenda.png" alt="Legenda" width="150" height="150">
-      </div>
-  </div>
+  <div id="map"></div>
   
   <script type="text/javascript">
     // you want to get it of the window global
     const cari = new GeoSearch.OpenStreetMapProvider();
-    
     
     // Create the Leaflet map with a generic start point
     var map = L.map('map', {
