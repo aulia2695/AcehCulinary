@@ -40,30 +40,6 @@
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
   <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
   
-<style>
-div.gallery {
-  position: static;
-  top: 40px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
-  
 </head>
 
 <body>
@@ -80,14 +56,7 @@ div.desc {
   </div>
 
   <div class="loader">Loading...</div>
-  <div id="map">
-      <div class="gallery">
-        <a target="_blank" href="img_5terre.jpg">
-          <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-  </div>
+  <div id="map"></div>
   
   <script type="text/javascript">
     // you want to get it of the window global
