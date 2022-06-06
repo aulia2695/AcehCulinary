@@ -40,8 +40,16 @@
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
   <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
   
-  
-  
+  <style> 
+  #example2 {
+    box-sizing: border-box;
+    width: 300px;
+    height: 100px;
+    padding: 30px;  
+    border: 10px solid blue;
+    position: right;
+  }
+  </style>
   
 </head>
 
@@ -60,6 +68,8 @@
 
   <div class="loader">Loading...</div>
   <div id="map"></div>
+  
+  <div id="example2">Here, the full width is 300px, no matter what!</div>
 
   <script type="text/javascript">
     // you want to get it of the window global
