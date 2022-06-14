@@ -148,7 +148,7 @@ $(window).on('load', function() {
         var lon = parseFloat(c['Longitude']);
 
         chapterCount += 1;
-
+       
         markers.push(
           L.marker([lat, lon], {
             icon: L.ExtraMarkers.icon({
@@ -159,11 +159,7 @@ $(window).on('load', function() {
             opacity: c['Marker'] === 'Hidden' ? 0 : 0.9,
             interactive: c['Marker'] === 'Hidden' ? false : true,
           }
-        ).bindLabel(c['Chapter'], {
-            noHide: true,
-            direction: 'auto'
-          })
-        );
+        ));
 
       } else {
         markers.push(null);
