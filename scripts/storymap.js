@@ -163,7 +163,7 @@ $(window).on('load', function() {
         
       } else {
         markers.push(null);
-      }.bindPopup("Kuliner: " + c['Chapter']);
+      }
       
       // Add chapter container
       var container = $('<div></div>', {
