@@ -151,9 +151,9 @@ $(window).on('load', function() {
        
         markers.push(
           L.marker([lat, lon], {
-            icon: L.ExtraMarkers.icon,
-            title: c['Chapter']({
+            icon: L.ExtraMarkers.icon({
               icon: 'fa-number',
+              title: c['Chapter'],
               number: c['Marker'] === 'Plain' ? '' : chapterCount,
               markerColor: c['Marker Color'] || 'blue'
             }),
