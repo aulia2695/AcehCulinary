@@ -160,10 +160,7 @@ $(window).on('load', function() {
             interactive: c['Marker'] === 'Hidden' ? false : true,
          }
         ));
-      } else {
-        markers.push(null);
-      }
-      
+        
       markers.on("mouseover", function(e) {
         var info = e.target;
         markers.bindPopup(c['Chapter'],{offset:[0,-20]});
@@ -176,7 +173,11 @@ $(window).on('load', function() {
         marker.unbindPopup();
         console.log('mouse out');
       });
-
+        
+      } else {
+        markers.push(null);
+      }
+      
       // Add chapter container
       var container = $('<div></div>', {
         id: 'container' + i,
