@@ -149,8 +149,7 @@ $(window).on('load', function() {
 
         chapterCount += 1;
        
-        markers.push(
-          L.marker([lat, lon], {
+        markers.push(L.marker([lat, lon], {
             icon: L.ExtraMarkers.icon({
               icon: 'fa-number',
               title: c['Chapter'],
@@ -160,7 +159,7 @@ $(window).on('load', function() {
             opacity: c['Marker'] === 'Hidden' ? 0 : 0.9,
             interactive: c['Marker'] === 'Hidden' ? false : true,
           }
-        ));
+        )).addTo(map);
 
       } else {
         markers.push(null);
