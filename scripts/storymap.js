@@ -161,22 +161,9 @@ $(window).on('load', function() {
          }
         ));
         
-      markers.on("mouseover", function(e) {
-        var info = e.target;
-        markers.bindPopup(c['Chapter'],{offset:[0,-20]});
-        markers.openPopup();
-        console.log(info);
-      });
-      
-      markers.on("mouseout", function() {
-        markers.closePopup();
-        marker.unbindPopup();
-        console.log('mouse out');
-      });
-        
       } else {
         markers.push(null);
-      }
+      }.addTo(map).bindPopup(c['Chapter']);
       
       // Add chapter container
       var container = $('<div></div>', {
