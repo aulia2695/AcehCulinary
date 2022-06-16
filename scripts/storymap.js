@@ -163,6 +163,16 @@ $(window).on('load', function() {
       } else {
         markers.push(null);
       }
+      
+      markers.on("mouseover", function() {
+        markers.bindPopup(c['Chapter'],{offset:[0,-20]});
+        markers.openPopup();
+      });
+      
+      markers.on("mouseout", function() {
+        markers.closePopup();
+        marker.unbindPopup();
+      });
 
       // Add chapter container
       var container = $('<div></div>', {
