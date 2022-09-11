@@ -138,8 +138,12 @@ a.source:visited {
   By default, current (active) marker is orange.
   If you want to change the color, see options here: https://github.com/coryasilva/Leaflet.ExtraMarkers/blob/master/src/assets/css/leaflet.extra-markers.css
 */
+
+/* set z-index for overlay active marker */
 .marker-active {
   background-position: -72px 0 !important;
+  position: relative;
+  z-index: 1000 !important;
 }
 
 /* Storymap logo image above the title */
