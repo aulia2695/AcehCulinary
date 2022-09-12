@@ -279,7 +279,7 @@ $(window).on('load', function() {
     
     //search control option
     var controlSearch = new L.Control.Search({
-      position:'topleft',	
+      position:'topcenter',	
       // style: 'bar',
       sourceData: localData,
       initial: false,
