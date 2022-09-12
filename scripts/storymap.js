@@ -113,8 +113,7 @@ $(window).on('load', function() {
     // Add zoom controls if needed
     if (getSetting('_zoomControls') !== 'off') {
       L.control.zoom({
-        // position: getSetting('_zoomControls')
-        position: 'topright'
+        position: getSetting('_zoomControls')
       }).addTo(map);
     }    
 
@@ -141,8 +140,6 @@ $(window).on('load', function() {
     var overlay;  // URL of the overlay for in-focus chapter
     var geoJsonOverlay;
 
-    var listDataSearch = []; //array data for search by content
-
     for (i in chapters) {
       var c = chapters[i];
 
@@ -151,27 +148,21 @@ $(window).on('load', function() {
         var lon = parseFloat(c['Longitude']);
 
         chapterCount += 1;
-        var  titik = L.marker([lat, lon], {
-          icon: L.ExtraMarkers.icon({
-            icon: 'fa-number',
-            title: c['Chapter'],
-            number: c['Marker'] === 'Plain' ? '' : chapterCount,
-            markerColor: c['Marker Color'] || 'blue',
-          }),
-          opacity: c['Marker'] === 'Hidden' ? 0 : 0.9,
-          interactive: c['Marker'] === 'Hidden' ? false : true,
-          title: c['Chapter'],
-          riseOnHover: true
-       })
-        titik.bindTooltip(c['Chapter'], {offset: [0, -20]});
-        markers.push(titik);
-
-        //collect data for content search feature
-        // if(c['Marker'] === 'Plain'){
-          dataSearch = {"loc":[lat, lon], "title":c['Chapter']};
-          listDataSearch.push(dataSearch);
-        // }
-
+       
+        var mhover = L.marker([lat, lon], {
+            icon: L.ExtraMarkers.icon({
+              icon: 'fa-number',
+              title: c['Chapter'],
+              number: c['Marker'] === 'Plain' ? '' : chapterCount,
+              markerColor: c['Marker Color'] || 'blue'
+            }),
+            opacity: c['Marker'] === 'Hidden' ? 0 : 0.9,
+            interactive: c['Marker'] === 'Hidden' ? false : true,
+            riseOnHover: true
+         })
+        mhover.bindTooltip(c['Chapter'], {offset: [0, -20]});
+        markers.push(mhover);
+        
       } else {
         markers.push(null);
       }
@@ -267,46 +258,6 @@ $(window).on('load', function() {
 
     }
 
-    //Content search feature 
-    function localData(text, callResponse)
-    {
-      callResponse(listDataSearch);
-      return {	//called to stop previous requests on map move
-        abort: function() {
-          console.log('aborted request:'+ text);
-        }
-      };
-    }
-    //search control option
-    var controlSearch = new L.Control.Search({
-      position:'topleft',		
-      sourceData: localData,
-      initial: false,
-      // zoom: 16,
-      textPlaceholder: "Cari kuliner...",
-      hideMarkerOnCollapse: true,
-      marker: {
-        icon: new L.Icon({iconUrl:'images/custom-icon.png', iconSize: [8,8]}),
-        circle: {
-          radius: 5,
-          color: '#0a0',
-          opacity: 0.3
-        }
-      }
-    });
-    //action after content location found
-    controlSearch.on('search:locationfound', function(e) {
-      // console.log(markers);
-      for (i in markers) {
-        if (markers[i].options.title == e.text) {
-            var pixels = markers[i]._pixelsAbove + 5;
-            $('div#contents').animate({
-              scrollTop: pixels + 'px'});
-        }
-      }
-    });
-    //add search control to map
-    map.addControl( controlSearch );
     changeAttribution();
 
     /* Change image container heights */
@@ -479,7 +430,6 @@ $(window).on('load', function() {
           $('div#contents').animate({
             scrollTop: pixels + 'px'});
         });
-        
         bounds.push(markers[i].getLatLng());
       }
     }
