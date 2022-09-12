@@ -280,12 +280,13 @@ $(window).on('load', function() {
     //search control option
     var controlSearch = new L.Control.Search({
       position:'topleft',	
-      style: 'bar',
+      // style: 'bar',
       sourceData: localData,
       initial: false,
       // zoom: 16,
       textPlaceholder: "Cari kuliner...",
       hideMarkerOnCollapse: true,
+      collapsed: false,
       marker: {
         icon: new L.Icon({iconUrl:'images/custom-icon.png', iconSize: [8,8]}),
         circle: {
