@@ -37,9 +37,9 @@
   <link rel="stylesheet" href="css/easy-button.css">
   
   <!-- Load Leaflet GeoSearch -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>
+  <!--<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>-->
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
-  <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
+  <!--<script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>-->
   
   <!-- Load Leaflet easyButton for Home Button -->
   <script src="scripts/easy-button.js"></script>
@@ -64,7 +64,7 @@
   
   <script type="text/javascript">
     // you want to get it of the window global
-    const cari = new GeoSearch.OpenStreetMapProvider();
+    //const cari = new GeoSearch.OpenStreetMapProvider();
     
     // Create the Leaflet map with a generic start point
     var map = L.map('map', {
@@ -94,13 +94,13 @@
     });
     
     // Create Search Bar
-    const search = new GeoSearch.GeoSearchControl({
-      provider: cari,
-      style: 'bar',
-      position: 'topright',
-    });
+    //const search = new GeoSearch.GeoSearchControl({
+    //  provider: cari,
+    //  style: 'bar',
+    //  position: 'topright',
+    //});
     
-    map.addControl(search);
+    //map.addControl(search);
     
     // Create Legenda
     var legend = L.control({position: 'bottomleft'});
