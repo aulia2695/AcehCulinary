@@ -34,22 +34,13 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style-desktop.css">
   <link rel="stylesheet" href="css/loader.css">
-  <link rel="stylesheet" href="css/easy-button.css">
-  <link rel="stylesheet" href="css/leaflet-search.css">
-  <!--<link rel="stylesheet" href="css/leaflet.css">-->
-  <!--<link rel="stylesheet" href="css/fontawesome.min.css">-->
   
   <!-- Load Leaflet GeoSearch -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
-  <!-- <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script> -->
+  <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
   
   <!-- Load Leaflet easyButton for Home Button -->
-  <script src="scripts/easy-button.js"></script>
-  
-  <!-- Load Leaflet control search for Search Button -->
-  <script src="scripts/leaflet-search.js"></script>
-  <!--<script src="scripts/leaflet.js"></script>-->
      
 </head>
 
@@ -71,7 +62,7 @@
   
   <script type="text/javascript">
     // you want to get it of the window global
-    // const cari = new GeoSearch.OpenStreetMapProvider();
+    const cari = new GeoSearch.OpenStreetMapProvider();
     
     // Create the Leaflet map with a generic start point
     var map = L.map('map', {
@@ -88,11 +79,8 @@
     map.on('click', function(e) {
         let latitude  = e.latlng.lat.toString().substring(0,15);
         let longitude = e.latlng.lng.toString().substring(0,15);
-        
-        //set popup position
-        let popup = L.popup({
-          offset:[0, -30],
-        })
+      
+        let popup = L.popup()
             .setLatLng([latitude,longitude])
             .setContent("Koordinat : " + latitude +" - "+  longitude )
             .openOn(map);
@@ -100,22 +88,17 @@
         if (point != undefined) {
             map.removeLayer(point);
         };
-        point = L.marker([latitude,longitude]).addTo(map);
-      
-        //delete point when popup close
-        $(".leaflet-popup-close-button").on('click', function(event){
-          map.removeLayer(point);
-        });
+        point = L.marker([latitude,longitude]).addTo(map);  
     });
     
     // Create Search Bar
-    //const search = new GeoSearch.GeoSearchControl({
-    //  provider: cari,
-    //  style: 'bar',
-    //  position: 'topright',
-    //});
+    const search = new GeoSearch.GeoSearchControl({
+      provider: cari,
+      style: 'bar',
+      position: 'topright',
+    });
     
-    //map.addControl(search);
+    map.addControl(search);
     
     // Create Legenda
     var legend = L.control({position: 'bottomleft'});
@@ -141,12 +124,6 @@
         return div;
     };
     legend.addTo(map);
-    
-    // Create Button Home (to top)
-    let homebutton = L.easyButton('fa-home fa-lg', function(){
-        window.location.href = '#top';;
-      }, 'Home Position',{ position: 'topright'});
-    homebutton.addTo(map);
     
     
   </script>
