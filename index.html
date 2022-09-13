@@ -8,12 +8,15 @@
   <title>Ensiklopedia Kuliner Aceh</title>
 
   <!-- Load Leaflet CSS and JS-->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+  <!--
+  <link rel="stylesheet" href="css/leaflet.css"/>
+  <script src="scripts/leaflet.js"></script>-->
 
   <!-- Load Leaflet basemap providers -->
   <script src="https://unpkg.com/leaflet-providers@1.10.2/leaflet-providers.js"></script>
@@ -47,6 +50,26 @@
   
   <!-- Load Leaflet Search for Search Button -->
   <script src="scripts/leaflet-search.js"></script>
+  
+  <style>
+    .leaflet-center {
+    left: 50%;
+    transform: translate(-50%, 0%);
+    }
+
+    .leaflet-middle {
+        top: 10%;
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+      transform: translate(0%, -50%);
+
+    }
+
+    .leaflet-center.leaflet-middle {
+      transform: translate(-50%, -50%);
+    }
+  </style>
      
 </head>
 
