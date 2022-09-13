@@ -8,9 +8,6 @@
   <title>Ensiklopedia Kuliner Aceh</title>
 
   <!-- Load Leaflet CSS and JS-->
-  <!--<link rel="stylesheet" href="css/leaflet.css"/>-->
-  <!--<script src="scripts/leaflet.js"></script>-->
-  
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
@@ -32,46 +29,18 @@
   <link rel="stylesheet" href="scripts/lightbox/css/lightbox.css" />
 
   <!-- Load Font-Awesome -->
-  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">-->
-  <link rel="stylesheet" href="css/all.css">
-  <!--<link rel="stylesheet" href="css/fontawesome.min.css">-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="markers/leaflet.extra-markers.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style-desktop.css">
   <link rel="stylesheet" href="css/loader.css">
-  <link rel="stylesheet" href="css/easy-button.css">
-  <link rel="stylesheet" href="css/leaflet-search.css">
   
   <!-- Load Leaflet GeoSearch -->
-  <!--<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.css"/>
   <!-- Make sure you put this AFtER leaflet.js, when using with leaflet -->
-  <!--<script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>-->
+  <script src="https://unpkg.com/leaflet-geosearch@3.1.0/dist/geosearch.umd.js"></script>
   
   <!-- Load Leaflet easyButton for Home Button -->
-  <script src="scripts/easy-button.js"></script>
-  
-  <!-- Load Leaflet Search for Search Button -->
-  <script src="scripts/leaflet-search.js"></script>
-  
-  <!--<style>
-    .leaflet-center {
-    left: 50%;
-    transform: translate(-50%, 0%);
-    }
-
-    .leaflet-middle {
-        top: 10%;
-        position: absolute;
-        z-index: 1000;
-        pointer-events: none;
-      transform: translate(0%, -50%);
-
-    }
-
-    .leaflet-center.leaflet-middle {
-      transform: translate(-50%, -50%);
-    }
-  </style>-->
      
 </head>
 
@@ -93,7 +62,7 @@
   
   <script type="text/javascript">
     // you want to get it of the window global
-    //const cari = new GeoSearch.OpenStreetMapProvider();
+    const cari = new GeoSearch.OpenStreetMapProvider();
     
     // Create the Leaflet map with a generic start point
     var map = L.map('map', {
@@ -110,11 +79,8 @@
     map.on('click', function(e) {
         let latitude  = e.latlng.lat.toString().substring(0,15);
         let longitude = e.latlng.lng.toString().substring(0,15);
-        
-        // set popup position
-        let popup = L.popup({
-          offset: [0, -30],
-        })
+      
+        let popup = L.popup()
             .setLatLng([latitude,longitude])
             .setContent("Koordinat : " + latitude +" - "+  longitude )
             .openOn(map);
@@ -122,23 +88,17 @@
         if (point != undefined) {
             map.removeLayer(point);
         };
-        point = L.marker([latitude,longitude]).addTo(map);
-      
-        //delete point when popup close
-        $(".leaflet-popup-close-button").on('click', function(event){
-          map.removeLayer(point);
-
-        });
+        point = L.marker([latitude,longitude]).addTo(map);  
     });
     
     // Create Search Bar
-    //const search = new GeoSearch.GeoSearchControl({
-    //  provider: cari,
-    //  style: 'bar',
-    //  position: 'topright',
-    //});
+    const search = new GeoSearch.GeoSearchControl({
+      provider: cari,
+      style: 'bar',
+      position: 'topright',
+    });
     
-    //map.addControl(search);
+    map.addControl(search);
     
     // Create Legenda
     var legend = L.control({position: 'bottomleft'});
@@ -165,11 +125,6 @@
     };
     legend.addTo(map);
     
-    // Create Home Button (to top)
-    let homebutton = L.easyButton('fa-home fa-lg', function(){
-        window.location.href = '#top';;
-      }, 'Home Position',{ position: 'topleft'});
-    homebutton.addTo(map);
     
   </script>
 
