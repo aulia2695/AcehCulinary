@@ -285,6 +285,7 @@ $(window).on('load', function() {
       // zoom: 16,
       textPlaceholder: "Cari kuliner...",
       hideMarkerOnCollapse: true,
+      collapsed: false,
       marker: {
         icon: new L.Icon({iconUrl:'images/custom-icon.png', iconSize: [8,8]}),
         circle: {
