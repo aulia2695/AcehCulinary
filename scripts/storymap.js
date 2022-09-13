@@ -160,6 +160,7 @@ $(window).on('load', function() {
             }),
             opacity: c['Marker'] === 'Hidden' ? 0 : 0.9,
             interactive: c['Marker'] === 'Hidden' ? false : true,
+            title: c['Chapter'],
             riseOnHover: true
          })
         mhover.bindTooltip(c['Chapter'], {offset: [0, -20]});
