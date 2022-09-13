@@ -80,7 +80,10 @@
         let latitude  = e.latlng.lat.toString().substring(0,15);
         let longitude = e.latlng.lng.toString().substring(0,15);
       
-        let popup = L.popup()
+        //set popup position
+        let popup = L.popup({
+          offset: [0,-3],
+        })
             .setLatLng([latitude,longitude])
             .setContent("Koordinat : " + latitude +" - "+  longitude )
             .openOn(map);
@@ -89,6 +92,12 @@
             map.removeLayer(point);
         };
         point = L.marker([latitude,longitude]).addTo(map);  
+      
+        //delete point when popup marker close
+        $(".leaflet-popup-close-button").on('click', function(event){
+          map.removeLayer(point);
+        });
+      
     });
     
     // Create Search Bar
