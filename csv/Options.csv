@@ -5,7 +5,7 @@ Storymap Subtitle,,"Add your subtitle, or delete that portion"
 Storymap Logo,media/5.png,Path to a logo image
 Google Analytics Tracking ID,,Sample format: UA-5488840-29
 Map Settings,,"For help, see tutorial in HandsOnDataViz.org"
-Basemap Tiles,OpenStreetMap.Mapnik,Drop-down menu for background basemap tiles
+Basemap Tiles,Esri.WorlImagery,Drop-down menu for background basemap tiles
 Zoom Controls,topright,
 Narrative Background Color,#DBDFFD,
 Narrative Text Color,,
