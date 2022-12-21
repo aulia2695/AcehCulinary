@@ -280,7 +280,7 @@ $(window).on('load', function() {
     
     //search control option
     var controlSearch = new L.Control.Search({
-      position:'bottomright',		
+      position:'topcenter',		
       sourceData: localData,
       initial: false,
       // zoom: 16,
